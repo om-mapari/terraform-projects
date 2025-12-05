@@ -6,6 +6,7 @@ const dynamo = DynamoDBDocumentClient.from(client);
 const tableName = 'OrderUpDB';
 
 export const handler = async (event) => {
+    console.log(event)
     try {
         const requestJSON = JSON.parse(event.body);
 

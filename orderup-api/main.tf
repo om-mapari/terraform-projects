@@ -9,6 +9,16 @@ terraform {
       version = "~> 6.0"
     }
   }
+
+  backend "s3" {
+    bucket                   = "my-terraform-state-bucket-ommap1"
+    key                      = "dev/terraform.tfstate"
+    encrypt                  = true
+    use_lockfile             = true
+    region                   = "us-east-1"
+    shared_credentials_files = ["./.aws/credentials"]
+    profile                  = "default"
+  }
 }
 
 provider "aws" {
